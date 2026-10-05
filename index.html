@@ -49,7 +49,7 @@ tr.best td{background:#eef7f1}
 </div></header>
 
 <main>
-<div class="banner"><b>Démonstration — ceci n'est pas un devis.</b> Les assureurs sont fictifs, les prix sont simulés à partir d'un barème inventé et les 48 h sont accélérées. Aucune assurance ne peut être souscrite ici et aucune donnée n'est envoyée : tout reste dans votre navigateur. Ne saisissez aucune information personnelle.</div>
+<div class="banner"><b>Démonstration — ceci n'est pas un devis.</b> Les assureurs sont fictifs, les prix sont simulés à partir d'un barème inventé et les 48 h sont accélérées. Aucune assurance ne peut être souscrite ici et aucune donnée saisie n'est envoyée : tout reste dans votre navigateur. Seule une mesure d'audience anonyme, sans cookie (GoatCounter), compte les visites. Ne saisissez aucune information personnelle.</div>
 
 <section id="step1" class="card">
 <h2>1. Votre profil</h2>
@@ -190,6 +190,7 @@ function demarrer(p){
 
 $("form").addEventListener("submit",ev=>{
   ev.preventDefault();
+  try{window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path:'/marketassurance/evenement/lancer-encheres',title:'Lancer les enchères',event:true})}catch(e){}
   const p={age:+$("age").value,capital:+$("capital").value,duree:+$("duree").value,objet:$("objet").value,
     metier:+$("metier").value,fumeur:$("fumeur").checked,sport:$("sport").checked,
     banque:+$("banque").value||0,motif:$("motif").value.trim()};
@@ -219,5 +220,8 @@ try{
     if(s.banque)$("banque").value=s.banque;$("motif").value=s.motif||""}
 }catch(e){}
 </script>
+<script>window.goatcounter={path:function(p){return '/marketassurance'+p}}</script>
+<script data-goatcounter="https://mehdigraoui.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

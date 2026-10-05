@@ -32,7 +32,7 @@ ul{padding-left:18px;margin:8px 0 0}
 <body>
 <header><div><h1>Espace assureur</h1><p>Consultez la fiche anonymisée et baissez votre prix pour remporter le client.</p></div></header>
 <main>
-<div class="card" style="background:#fff7e6;border-color:#f0d9a8;color:#6b4a00;font-size:14px"><b>Démonstration.</b> Espace assureur simulé : aucun vrai assureur, aucune donnée réelle.</div>
+<div class="card" style="background:#fff7e6;border-color:#f0d9a8;color:#6b4a00;font-size:14px"><b>Démonstration.</b> Espace assureur simulé : aucun vrai assureur, aucune donnée réelle. Mesure d'audience anonyme sans cookie (GoatCounter).</div>
 <div class="card" id="vide">
   <h2>Aucune enchère en cours</h2>
   <p class="note">Ouvrez la page client (<code>index.html</code>) <b>dans le même navigateur</b>, lancez une enchère, puis revenez ici. Cette démo partage les données via le navigateur (localStorage) ; il faut donc servir les deux pages depuis le même site, par exemple avec <code>python3 -m http.server</code>.</p>
@@ -103,5 +103,8 @@ $("envoyer").onclick=()=>envoyer(+$("prix").value);
 $("battre").onclick=()=>{const s=etat(); if(s)envoyer(Math.floor((s.meilleure-1)*100)/100)};
 etat(); setInterval(etat,300);
 </script>
+<script>window.goatcounter={path:function(p){return '/marketassurance'+p}}</script>
+<script data-goatcounter="https://mehdigraoui.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
